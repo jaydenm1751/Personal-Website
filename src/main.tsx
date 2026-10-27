@@ -3,14 +3,15 @@ import { createRoot } from 'react-dom/client';
 import { ArrowDownRight, ArrowUpRight, Github, Instagram, Linkedin, Mail, Sparkles } from 'lucide-react';
 import './styles.css';
 
-const projects = [
+const highlighted_projects = [
   {
     number: '01',
     type: 'BACKEND · SYSTEMS',
     title: 'Canvas-Lite',
     description: 'A learning-management backend built around role-based access, a relational data model, and a clean API.',
     tags: ['FastAPI', 'PostgreSQL', 'Docker'],
-    href: 'https://github.com/',
+    private: false,
+    href: 'https://github.com/jaydenm1751/canvas-lite-backend',
   },
   {
     number: '02',
@@ -18,7 +19,18 @@ const projects = [
     title: 'Raft Key-Value Store',
     description: 'Exploring consensus, replicated state, and the engineering trade-offs behind reliable distributed systems.',
     tags: ['Python', 'Raft', 'gRPC'],
-    href: 'https://github.com/',
+    private: true,
+    href: 'https://github.com/jaydenm1751/Raft-KVStore',
+  },
+  {
+    number: '03',
+    type: 'PARALLEL SYSTEMS',
+    title: 'CUDA K-Means',
+    description: 'An optimized K-Means algorithm by developing CUDA kernels achieving up to ~25× end-to-end speedup over the CPU baseline on datasets.',
+    tags: ['C++', 'CUDA', 'Thrust'],
+    private: true,
+    href: 'https://github.com/jaydenm1751/Lab2-CudaKMeans',
+
   },
   {
     number: '03',
@@ -26,7 +38,8 @@ const projects = [
     title: 'World Cup Outcome Predictor',
     description: 'A data-driven look at international football results using historical match data and predictive models.',
     tags: ['Python', 'Scikit-learn', 'MongoDB'],
-    href: 'https://github.com/',
+    private: false,
+    href: 'https://github.com/jaydenm1751/cap4770-finalproject',
   },
 ];
 
@@ -37,7 +50,7 @@ function App() {
         <a className="wordmark" href="#home" aria-label="Jayden McKenna home">J<span>.</span>GM</a>
         <nav aria-label="Main navigation">
           <a href="#about">About</a>
-          <a href="#work">Selected work</a>
+          <a href="#work">Highlighted work</a>
           <a href="#contact">Contact</a>
         </nav>
         <a className="availability" href="#contact"><span className="status-dot" /> Welcome to my corner of the internet</a>
@@ -89,13 +102,13 @@ function App() {
         </section>
 
         <section className="work section" id="work">
-          <div className="section-kicker"><span>02 / SELECTED WORK</span><span>A FEW THINGS I'VE BUILT</span></div>
+          <div className="section-kicker"><span>02 / HIGHLIGHTS</span><span>A FEW THINGS I'VE BUILT</span></div>
           <div className="work-heading">
             <h2>Proof of <em>curiosity.</em></h2>
-            <p>A starting collection, not a finished catalogue.<br />More projects and write-ups coming soon.</p>
+            <p>A collection, not a finished catalogue.<br />Check out more projects and write-ups [@#ref] coming soon.</p>
           </div>
           <div className="project-list">
-            {projects.map((project) => (
+            {highlighted_projects.map((project) => (
               <article className="project" key={project.number}>
                 <span className="project-number">{project.number}</span>
                 <div className="project-main">
@@ -104,7 +117,24 @@ function App() {
                   <p>{project.description}</p>
                   <div className="tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
                 </div>
-                <a className="project-arrow" href={project.href} target="_blank" rel="noreferrer" aria-label={`Find ${project.title} on GitHub`}><ArrowUpRight size={21} /></a>
+                
+                {project.private ? (
+                  <div className="project-private">
+                    <span>Private repository</span>
+                    <p>Interested in the implementation? Reach out to see the code.</p>
+                  </div>
+                ) : (
+                  <a
+                    className="project-arrow"
+                    href={project.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Find ${project.title} on GitHub`}
+                  >
+                    <ArrowUpRight size={21} />
+                  </a>
+                )}
+                
               </article>
             ))}
           </div>
