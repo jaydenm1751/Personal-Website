@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { ArrowDownRight, ArrowUpRight, Github, Linkedin, Mail, Sparkles } from 'lucide-react';
+import { ArrowDownRight, ArrowUpRight, Github, Instagram, Linkedin, Mail, Sparkles } from 'lucide-react';
 import './styles.css';
 
 const projects = [
@@ -119,9 +119,10 @@ function App() {
               <p>I'm always interested in thoughtful people, interesting problems, and ideas worth exploring.</p>
               <a className="button button-light" href="mailto:hello@jaydengmckenna.com">Get in touch <ArrowUpRight size={16} /></a>
               <div className="social-links">
-                <a href="https://github.com/" target="_blank" rel="noreferrer"><Github size={16} /> GitHub <ArrowUpRight size={13} /></a>
-                <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer"><Linkedin size={16} /> LinkedIn <ArrowUpRight size={13} /></a>
-                <a href="mailto:hello@jaydengmckenna.com"><Mail size={16} /> Email <ArrowUpRight size={13} /></a>
+                <a href="https://github.com/jaydenm1751" target="_blank" rel="noreferrer"><Github size={16} /> GitHub <ArrowUpRight size={13} /></a>
+                <a href="https://www.linkedin.com/in/jaydenmckenna/" target="_blank" rel="noreferrer"><Linkedin size={16} /> LinkedIn <ArrowUpRight size={13} /></a>
+                <a href="https://www.instagram.com/jxydenmckenna/" target="_blank" rel="noreferrer"><Instagram size={16} /> Instagram <ArrowUpRight size={13} /></a>
+                <a href="mailto:jgmckenna02@gmail.com"><Mail size={16} /> Email <ArrowUpRight size={13} /></a>
               </div>
             </div>
           </div>
