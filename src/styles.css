@@ -162,11 +162,3 @@ h2 em { color: #788d3a; }
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-
-.project-private p {
-  margin: 0;
-  color: #77776f;
-  font-size: 0.82rem;
-  line-height: 1.5;
-}
-
