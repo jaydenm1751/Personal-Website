@@ -1163,7 +1163,7 @@ h2 {
   color: white;
 }
 
-.art-orbit {
+.project-art .art-orbit {
   position: absolute;
   z-index: -1;
   top: 50%;
@@ -1175,13 +1175,13 @@ h2 {
   transform: translate(-50%, -50%) rotate(-32deg);
 }
 
-.art-orbit-two {
+.project-art .art-orbit-two {
   width: 120px;
   height: 190px;
   transform: translate(-50%, -50%) rotate(36deg);
 }
 
-.art-core {
+.project-art .art-core {
   position: absolute;
   z-index: -1;
   top: 50%;
