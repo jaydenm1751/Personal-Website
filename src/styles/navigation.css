@@ -1,0 +1,136 @@
+/* Home page topbar */
+
+.topbar {
+  min-height: 86px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  gap: 24px;
+}
+
+.wordmark {
+  flex-shrink: 0;
+  font: 800 22px 'Manrope', sans-serif;
+  letter-spacing: -1.5px;
+}
+
+.wordmark span {
+  color: var(--accent-dark);
+}
+
+.topbar nav {
+  display: flex;
+  gap: 34px;
+  font-size: 12px;
+  color: #565951;
+}
+
+.topbar nav a {
+  transition: color 0.2s ease;
+}
+
+.topbar nav a:hover {
+  color: var(--accent-dark);
+}
+
+.availability {
+  font: 10px 'DM Mono', monospace;
+  color: #65685f;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-dark);
+  box-shadow: 0 0 0 4px var(--accent-pale);
+  flex-shrink: 0;
+}
+
+@media (max-width: 760px) {
+  .topbar {
+    min-height: 72px;
+    gap: 16px;
+  }
+
+  .topbar nav {
+    gap: 16px;
+  }
+
+  .availability {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .topbar {
+    gap: 12px;
+  }
+
+  .wordmark {
+    font-size: 20px;
+  }
+
+  .topbar nav {
+    gap: 12px;
+    font-size: 11px;
+  }
+}
+
+/* Shared navigation bar for the Projects / project-detail routes */
+
+.site-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px clamp(22px, 6vw, 88px);
+  border-bottom: 1px solid #e8e9e5;
+  background: #fbfbf8;
+}
+
+.site-wordmark {
+  color: #20251f;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  text-decoration: none;
+}
+
+.site-navigation nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.site-navigation nav a {
+  color: #646b63;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.site-navigation nav a:hover,
+.site-navigation nav a.current {
+  color: #347653;
+}
+
+@media (max-width: 680px) {
+  .site-navigation {
+    padding: 18px 24px;
+  }
+
+  .site-navigation nav {
+    gap: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-navigation nav a {
+    transition: none;
+  }
+}

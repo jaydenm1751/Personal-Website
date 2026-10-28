@@ -1,0 +1,51 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 14px 18px;
+  font-size: 12px;
+  font-weight: 600;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button-dark {
+  background: var(--ink);
+  color: white;
+}
+
+.button-dark:hover {
+  background: var(--accent-dark);
+  box-shadow: 0 5px 16px #34765320;
+}
+
+.button-light {
+  background: var(--accent);
+  color: #20392a;
+  margin: 9px 0 26px;
+}
+
+.button-light:hover {
+  background: #8bc5a3;
+  box-shadow: 0 5px 18px #68af8920;
+}
+
+.text-link {
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition: color 0.2s ease;
+}
+
+.text-link:hover {
+  color: var(--accent-dark);
+}
