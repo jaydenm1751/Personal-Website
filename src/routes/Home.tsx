@@ -69,7 +69,7 @@ function Home() {
         </a>
 
         <nav aria-label="Main navigation">
-          <a href="#about">About</a>
+          <Link to="/about">About</Link>
           <a href="#work">Highlighted work</a>
            <Link to="/projects">Projects</Link>
           <a href="#contact">Contact</a>
