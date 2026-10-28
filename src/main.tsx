@@ -11,6 +11,7 @@ import {
 
 import "./styles.css";
 import Home from "./routes/Home";
+import About from "./routes/About";
 import Projects from "./routes/Projects";
 import ProjectDetail from "./routes/ProjectDetail";
 
@@ -39,6 +40,13 @@ function SiteNavigation() {
         >
           Projects
         </Link>
+
+        <Link
+          className={location.pathname === "/about" ? "current" : ""}
+          to="/about"
+        >
+          About
+        </Link>
       </nav>
     </header>
   );
@@ -54,6 +62,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/projects/:slug" element={<ProjectDetail />} />
 
