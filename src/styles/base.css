@@ -1,0 +1,116 @@
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #20231f;
+  background: #f7f6f2;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+
+  --paper: #f7f6f2;
+  --ink: #20231f;
+  --muted: #73766e;
+  --line: #deded5;
+  --accent: #68af89;
+  --accent-dark: #347653;
+  --accent-soft: #e7f1e9;
+  --accent-pale: #dcece0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 24px;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent-dark);
+  outline-offset: 5px;
+  border-radius: 2px;
+}
+
+.site-shell {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 6.2%;
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font: 500 clamp(46px, 5.4vw, 76px)/1.08 'Manrope', sans-serif;
+  letter-spacing: -4px;
+  margin-bottom: 26px;
+}
+
+h2 {
+  font: 500 clamp(36px, 4.1vw, 56px)/1.12 'Manrope', sans-serif;
+  letter-spacing: -2.5px;
+  margin-bottom: 0;
+}
+
+h1 em,
+h2 em {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  color: var(--accent-dark);
+}
+
+/*
+ * Default "eyebrow" label style, used by the Projects page, the
+ * project-detail pages, and the 404 route. The homepage hero has its
+ * own distinct look - see `.hero-copy .eyebrow` in hero.css, which is
+ * scoped to win on specificity rather than relying on file order.
+ */
+.eyebrow {
+  margin: 0 0 14px;
+  color: #347653;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-family: 'DM Mono', monospace;
+}
+
+@media (max-width: 760px) {
+  .site-shell {
+    padding: 0 6%;
+  }
+
+  h1 {
+    letter-spacing: -2.8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

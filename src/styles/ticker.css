@@ -1,0 +1,33 @@
+.ticker {
+  background: var(--accent);
+  color: #20392a;
+  margin: 0 -7.1%;
+  padding: 17px 4%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 9px;
+  letter-spacing: 0.8px;
+  font-family: 'DM Mono', monospace;
+}
+
+.ticker b {
+  font-size: 13px;
+  font-weight: 400;
+}
+
+@media (max-width: 760px) {
+  .ticker {
+    margin: 0 -6.8%;
+    justify-content: flex-start;
+    gap: 18px;
+  }
+
+  .ticker span:nth-of-type(n + 4),
+  .ticker b:nth-of-type(n + 4) {
+    display: none;
+  }
+}

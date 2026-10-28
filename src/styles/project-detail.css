@@ -1,0 +1,36 @@
+.project-detail-page {
+  width: min(900px, calc(100% - 48px));
+  min-height: 60vh;
+  margin: 0 auto;
+  padding: clamp(64px, 10vw, 120px) 0;
+}
+
+.project-detail-page h1 {
+  margin: 0 0 24px;
+  color: #20251f;
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  font-weight: 600;
+  letter-spacing: -0.075em;
+  line-height: 1.04;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 56px;
+  font-size: 0.9rem;
+  color: #347653;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.project-detail-page > a {
+  color: #347653;
+  text-decoration: none;
+}
+
+.project-detail-page > a:hover {
+  text-decoration: underline;
+}

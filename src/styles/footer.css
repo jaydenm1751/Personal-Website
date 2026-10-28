@@ -1,0 +1,42 @@
+.footer {
+  min-height: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  color: #77796f;
+  font-size: 9px;
+  letter-spacing: 0.3px;
+  font-family: 'DM Mono', monospace;
+}
+
+.footer-mark {
+  color: var(--ink);
+  font-size: 18px;
+}
+
+.footer > a:not(.wordmark) {
+  color: #55594e;
+  transition: color 0.2s ease;
+}
+
+.footer > a:not(.wordmark):hover {
+  color: var(--accent-dark);
+}
+
+.copyright {
+  color: #77796f;
+}
+
+@media (max-width: 760px) {
+  .footer {
+    padding: 22px 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .footer {
+    gap: 14px;
+  }
+}
