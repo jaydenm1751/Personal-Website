@@ -16,9 +16,15 @@ const initialForm: ContactFormState = {
   message: "",
 };
 
+// TODO: swap for the real logger once the logging module is ready.
+function logHiddenFieldInteraction(fieldId: string) {
+  console.log(`Hidden field "${fieldId}" was checked before submit`);
+}
+
 export default function About() {
   const [form, setForm] = useState<ContactFormState>(initialForm);
   const [submitted, setSubmitted] = useState(false);
+  const [noPhone, setNoPhone] = useState(false);
 
   function handleChange(
     field: keyof ContactFormState,
@@ -34,8 +40,12 @@ export default function About() {
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    if (noPhone) {
+      logHiddenFieldInteraction("no-phone-flag");
+    }
+
     setSubmitted(true);
-    
     setForm(initialForm);
   }
 
@@ -128,14 +138,28 @@ export default function About() {
             </div>
 
             <div className="form-field">
-              <label htmlFor="contact-phone">Phone </label>
+              <label htmlFor="contact-phone">
+                Phone {!noPhone && <span className="form-required">*</span>}
+              </label>
               <input
                 id="contact-phone"
                 name="phone"
                 type="tel"
                 autoComplete="tel"
+                required={!noPhone}
                 value={form.phone}
                 onChange={handleChange("phone")}
+              />
+              <label htmlFor="no-phone-flag" className="sr-only">
+                Check here if no phone number
+              </label>
+              <input
+                type="checkbox"
+                id="no-phone-flag"
+                name="no-phone-flag"
+                className="sr-only"
+                checked={noPhone}
+                onChange={(event) => setNoPhone(event.currentTarget.checked)}
               />
             </div>
 
