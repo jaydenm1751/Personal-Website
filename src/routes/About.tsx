@@ -16,9 +16,19 @@ const initialForm: ContactFormState = {
   message: "",
 };
 
-// TODO: swap for the real logger once the logging module is ready.
+// Fire-and-forget: sends the event to the Cloudflare Pages Function at
+// functions/api/log-hidden-field.ts, viewable via the Cloudflare dashboard's
+// Functions real-time logs. Swap for the real logging backend once it's ready.
 function logHiddenFieldInteraction(fieldId: string) {
   console.log(`Hidden field "${fieldId}" was checked before submit`);
+
+  fetch("/api/log-hidden-field", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ fieldId }),
+  }).catch(() => {
+    // Best-effort logging; a failed request here shouldn't block the form.
+  });
 }
 
 export default function About() {
