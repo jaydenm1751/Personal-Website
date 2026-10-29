@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "personal-website",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "personal-website-logs",
+      "database_id": "71286609-04cc-4bb0-b305-939e2227144c",
+      "migrations_dir": "migrations"
+    }
+  ]
+}
