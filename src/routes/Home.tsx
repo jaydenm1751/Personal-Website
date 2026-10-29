@@ -64,18 +64,19 @@ function Home() {
           className="wordmark"
           href="#home"
           aria-label="Jayden McKenna home"
+          data-log="home:wordmark"
         >
           J<span>.</span>GM
         </a>
 
         <nav aria-label="Main navigation">
-          <Link to="/about">About</Link>
-          <a href="#work">Highlighted work</a>
-           <Link to="/projects">Projects</Link>
-          <a href="#contact">Contact</a>
+          <Link to="/about" data-log="home:nav-about">About</Link>
+          <a href="#work" data-log="home:nav-work">Highlighted work</a>
+           <Link to="/projects" data-log="home:nav-projects">Projects</Link>
+          <a href="#contact" data-log="home:nav-contact">Contact</a>
         </nav>
 
-        <a className="availability" href="#contact">
+        <a className="availability" href="#contact" data-log="home:availability">
           <span className="status-dot" aria-hidden="true" />
           Welcome to my corner of the internet
         </a>
@@ -102,10 +103,10 @@ function Home() {
             </p>
 
             <div className="hero-actions">
-              <a className="button button-dark" href="#work">
+              <a className="button button-dark" href="#work" data-log="home:hero-explore-work">
                 Explore my work <ArrowDownRight size={16} aria-hidden="true" />
               </a>
-              <a className="text-link" href="#about">
+              <a className="text-link" href="#about" data-log="home:hero-about-me">
                 A little about me <ArrowUpRight size={15} aria-hidden="true" />
               </a>
             </div>
@@ -240,6 +241,7 @@ function Home() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`View ${project.title} on GitHub (opens in a new tab)`}
+                    data-log={`home:project-github:${project.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
                   >
                     <ArrowUpRight size={21} aria-hidden="true" />
                   </a>
@@ -271,6 +273,7 @@ function Home() {
               <a
                 className="button button-light"
                 href="mailto:jgmckenna02@gmail.com"
+                data-log="home:contact-get-in-touch"
               >
                 Get in touch <ArrowUpRight size={16} aria-hidden="true" />
               </a>
@@ -278,6 +281,7 @@ function Home() {
               <div className="social-links" aria-label="Social links">
                 <a
                   href="https://github.com/jaydenm1751"
+                  data-log="home:social-github"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -288,6 +292,7 @@ function Home() {
 
                 <a
                   href="https://www.linkedin.com/in/jaydenmckenna/"
+                  data-log="home:social-linkedin"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -298,6 +303,7 @@ function Home() {
 
                 <a
                   href="https://www.instagram.com/jxydenmckenna/"
+                  data-log="home:social-instagram"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -306,7 +312,7 @@ function Home() {
                   <ArrowUpRight size={13} aria-hidden="true" />
                 </a>
 
-                <a href="mailto:jgmckenna02@gmail.com">
+                <a href="mailto:jgmckenna02@gmail.com" data-log="home:social-email">
                   <Mail size={16} aria-hidden="true" />
                   Email
                   <ArrowUpRight size={13} aria-hidden="true" />
@@ -318,11 +324,11 @@ function Home() {
       </main>
 
       <footer className="footer">
-        <a className="wordmark footer-mark" href="#home" aria-label="Back to home">
+        <a className="wordmark footer-mark" href="#home" aria-label="Back to home" data-log="home:footer-wordmark">
           J<span>.</span>GM
         </a>
         <span>Made with curiosity, in Dallas, TX.</span>
-        <a href="#home">BACK TO TOP ↑</a>
+        <a href="#home" data-log="home:footer-back-to-top">BACK TO TOP ↑</a>
         <span className="copyright">
           © {new Date().getFullYear()} JAYDEN G. MCKENNA
         </span>

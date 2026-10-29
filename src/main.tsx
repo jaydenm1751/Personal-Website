@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import {
   BrowserRouter,
@@ -14,13 +14,16 @@ import Home from "./routes/Home";
 import About from "./routes/About";
 import Projects from "./routes/Projects";
 import ProjectDetail from "./routes/ProjectDetail";
+import { installInteractionLogging, logPageView } from "./lib/interaction-log";
+
+installInteractionLogging();
 
 function SiteNavigation() {
   const location = useLocation();
 
   return (
     <header className="site-navigation">
-      <Link className="site-wordmark" to="/">
+      <Link className="site-wordmark" to="/" data-log="nav:wordmark">
         J.GM
       </Link>
 
@@ -28,6 +31,7 @@ function SiteNavigation() {
         <Link
           className={location.pathname === "/" ? "current" : ""}
           to="/"
+          data-log="nav:home"
         >
           Home
         </Link>
@@ -37,6 +41,7 @@ function SiteNavigation() {
             location.pathname.startsWith("/projects") ? "current" : ""
           }
           to="/projects"
+          data-log="nav:projects"
         >
           Projects
         </Link>
@@ -44,6 +49,7 @@ function SiteNavigation() {
         <Link
           className={location.pathname === "/about" ? "current" : ""}
           to="/about"
+          data-log="nav:about"
         >
           About
         </Link>
@@ -55,6 +61,10 @@ function SiteNavigation() {
 function App() {
   const location = useLocation();
   const isHome = location.pathname === "/";
+
+  useEffect(() => {
+    logPageView(location.pathname);
+  }, [location.pathname]);
 
   return (
     <>
@@ -72,7 +82,7 @@ function App() {
             <main className="project-detail-page">
               <p className="eyebrow">404</p>
               <h1>Page not found</h1>
-              <Link to="/">Return home</Link>
+              <Link to="/" data-log="404:return-home">Return home</Link>
             </main>
           }
         />
