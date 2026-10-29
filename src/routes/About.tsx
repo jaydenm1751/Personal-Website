@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import type { FormEvent } from "react";
+import { logFormSubmit } from "../lib/interaction-log";
 
 interface ContactFormState {
   name: string;
@@ -50,6 +51,17 @@ export default function About() {
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    // Which fields were filled, never their contents.
+    logFormSubmit("about:contact-form", {
+      filled: {
+        name: form.name.length > 0,
+        email: form.email.length > 0,
+        phone: form.phone.length > 0,
+        message: form.message.length > 0,
+      },
+      noPhone,
+    });
 
     if (noPhone) {
       logHiddenFieldInteraction("no-phone-flag");
@@ -113,6 +125,7 @@ export default function About() {
             <button
               type="button"
               className="text-link"
+              data-log="about:form-send-another"
               onClick={() => setSubmitted(false)}
             >
               Send another message
@@ -127,6 +140,7 @@ export default function About() {
                 name="name"
                 type="text"
                 autoComplete="name"
+                data-log="about:field-name"
                 value={form.name}
                 onChange={handleChange("name")}
               />
@@ -141,6 +155,7 @@ export default function About() {
                 name="email"
                 type="email"
                 autoComplete="email"
+                data-log="about:field-email"
                 required
                 value={form.email}
                 onChange={handleChange("email")}
@@ -156,6 +171,7 @@ export default function About() {
                 name="phone"
                 type="tel"
                 autoComplete="tel"
+                data-log="about:field-phone"
                 required={!noPhone}
                 value={form.phone}
                 onChange={handleChange("phone")}
@@ -168,6 +184,7 @@ export default function About() {
                 id="no-phone-flag"
                 name="no-phone-flag"
                 className="sr-only"
+                data-log="about:honeypot-no-phone"
                 checked={noPhone}
                 onChange={(event) => setNoPhone(event.currentTarget.checked)}
               />
@@ -180,6 +197,7 @@ export default function About() {
               <textarea
                 id="contact-message"
                 name="message"
+                data-log="about:field-message"
                 required
                 value={form.message}
                 onChange={handleChange("message")}
@@ -187,7 +205,7 @@ export default function About() {
             </div>
 
             <div className="form-actions">
-              <button type="submit" className="button button-dark">
+              <button type="submit" className="button button-dark" data-log="about:form-submit">
                 Send message
               </button>
             </div>

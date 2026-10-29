@@ -1,6 +1,6 @@
 # Lab Logger Spec: Observing AI Browsing Agents on a Static Site
 
-Status: draft v1. Target repo: personal portfolio site (React 18, TypeScript, Vite 6, Cloudflare Pages).
+Status: **superseded by `plan.md` (v3, Pages Function + D1).** Do not implement this document. Only section 12 (privacy and safety rules) still applies, with the honeypot exception recorded in `plan.md`. Original status: draft v1. Target repo: personal portfolio site (React 18, TypeScript, Vite 6, Cloudflare Pages).
 Purpose: capture everything an AI browsing agent (initially Meta Muse) does to this site, so we can describe its behavior from facts, not from what it says in chat.
 
 ---
