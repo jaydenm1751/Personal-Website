@@ -1,0 +1,60 @@
+{
+  "projects": [
+    {
+      "slug": "canvas-lite",
+      "title": "Canvas-Lite",
+      "category": "Backend · Systems",
+      "description": "A learning management backend featuring role-based access control and a relational database.",
+      "technologies": ["FastAPI", "PostgreSQL", "Docker"],
+      "status": "Public"
+    },
+    {
+      "slug": "raft-key-value-store",
+      "title": "Raft Key-Value Store",
+      "category": "Distributed Systems",
+      "description": "A distributed key-value store exploring consensus and replicated state.",
+      "technologies": ["Python", "Raft", "gRPC"],
+      "status": "Private"
+    },
+    {
+      "slug": "cuda-k-means",
+      "title": "CUDA K-Means",
+      "category": "Parallel Systems",
+      "description": "A parallel implementation of K-means clustering using GPU computing.",
+      "technologies": ["C++", "CUDA", "Thrust"],
+      "status": "Private"
+    },
+    {
+      "slug": "world-cup-outcome-predictor",
+      "title": "World Cup Outcome Predictor",
+      "category": "Machine Learning",
+      "description": "A machine learning project investigating international football match outcomes.",
+      "technologies": ["Python", "Scikit-learn", "MongoDB"],
+      "status": "Public"
+    },
+    {
+      "slug": "parallel-barnes-hut-n-body-simulation",
+      "title": "Parallel Barnes–Hut N-Body Simulation",
+      "category": "Parallel Systems",
+      "description": "A parallelized N-body simulation using MPI, combining per-rank Barnes–Hut tree construction with distributed force computation and collective communication.",
+      "technologies": ["C++", "MPI"],
+      "status": "Private"
+    },
+    {
+      "slug": "kernel-regression-cross-validation",
+      "title": "Kernel Regression with Cross-Validation",
+      "category": "Machine Learning",
+      "description": "Gaussian RBF kernel regression implemented from scratch, with a custom cross-validation pipeline to jointly tune bandwidth and regularization.",
+      "technologies": ["Python", "NumPy", "Machine Learning"],
+      "status": "Private"
+    },
+    {
+      "slug": "unsupervised-learning-kmeans-pca",
+      "title": "Unsupervised Learning with K-Means and PCA",
+      "category": "Machine Learning",
+      "description": "K-means clustering and PCA-based dimensionality reduction applied to high-dimensional MNIST image data, reaching up to 86% clustering accuracy.",
+      "technologies": ["Python", "Machine Learning", "PCA"],
+      "status": "Private"
+    }
+  ]
+}

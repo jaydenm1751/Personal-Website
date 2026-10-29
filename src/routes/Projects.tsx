@@ -1,44 +1,9 @@
 
 import { Link } from "react-router-dom";
+import projectsData from "../data/projects.json";
+import type { Project } from "../data/project.types";
 
-const projects = [
-  {
-    title: "Canvas-Lite",
-    category: "Backend · Systems",
-    description:
-      "A learning management backend featuring role-based access control and a relational database.",
-    technologies: ["FastAPI", "PostgreSQL", "Docker"],
-    slug: "canvas-lite",
-    status: "Public",
-  },
-  {
-    title: "Raft Key-Value Store",
-    category: "Distributed Systems",
-    description:
-      "A distributed key-value store exploring consensus and replicated state.",
-    technologies: ["Python", "Raft", "gRPC"],
-    slug: "raft-key-value-store",
-    status: "Private",
-  },
-  {
-    title: "CUDA K-Means",
-    category: "Parallel Systems",
-    description:
-      "A parallel implementation of K-means clustering using GPU computing.",
-    technologies: ["C++", "CUDA", "Thrust"],
-    slug: "cuda-k-means",
-    status: "Private",
-  },
-  {
-    title: "World Cup Outcome Predictor",
-    category: "Machine Learning",
-    description:
-      "A machine learning project investigating international football match outcomes.",
-    technologies: ["Python", "Scikit-learn", "MongoDB"],
-    slug: "world-cup-outcome-predictor",
-    status: "Public",
-  },
-];
+const projects = projectsData.projects as Project[];
 
 const categories = [
   "All projects",
