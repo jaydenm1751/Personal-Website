@@ -1,19 +1,4 @@
-interface RequestWithCf extends Request {
-  cf?: { country?: string; city?: string; asOrganization?: string };
-}
-
-interface D1PreparedStatement {
-  bind: (...args: unknown[]) => D1PreparedStatement;
-  run: () => Promise<unknown>;
-}
-
-interface D1Database {
-  prepare: (query: string) => D1PreparedStatement;
-}
-
-interface Env {
-  DB: D1Database;
-}
+import { type Env, type RequestWithCf, requestContext } from "../_shared/request-log";
 
 export async function onRequestPost({
   request,
@@ -31,18 +16,13 @@ export async function onRequestPost({
     return new Response("Invalid payload", { status: 400 });
   }
 
-  const entry = {
-    fieldId,
-    timestamp: new Date().toISOString(),
-    ip: request.headers.get("cf-connecting-ip") ?? "unknown",
-    userAgent: request.headers.get("user-agent") ?? "unknown",
-    referer: request.headers.get("referer") ?? "unknown",
-    country: request.cf?.country ?? "unknown",
-    city: request.cf?.city ?? "unknown",
-    asOrganization: request.cf?.asOrganization ?? "unknown",
-  };
+  const entry = { fieldId, ...requestContext(request) };
 
   console.warn(JSON.stringify({ event: "honeypot.triggered", ...entry }));
+
+  if (!env.DB) {
+    return new Response(null, { status: 204 });
+  }
 
   try {
     await env.DB.prepare(

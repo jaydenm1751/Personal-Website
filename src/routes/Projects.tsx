@@ -92,6 +92,7 @@ export default function Projects() {
             className="project-card"
             to={`/projects/${project.slug}`}
             key={project.slug}
+            data-log={`projects:card:${project.slug}`}
           >
             <div className={`project-art project-art-${index + 1}`}>
               <span className="project-art-index">
@@ -128,7 +129,7 @@ export default function Projects() {
       </section>
 
       <footer className="projects-footer">
-        <Link to="/">← Back to home</Link>
+        <Link to="/" data-log="projects:back-home">← Back to home</Link>
         <span>{projects.length} projects</span>
       </footer>
     </main>
