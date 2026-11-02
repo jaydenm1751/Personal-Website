@@ -12,6 +12,7 @@ export interface Project {
   description: string;
   technologies: string[];
   status: "Public" | "Private";
+  date?: string;
   featured?: boolean;
   repositoryUrl?: string;
   demoUrl?: string;
