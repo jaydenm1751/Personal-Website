@@ -176,12 +176,23 @@ export default function About() {
                 value={form.phone}
                 onChange={handleChange("phone")}
               />
-              {/* Temporary: honeypot checkbox repurposed as a hidden link. */}
+              {/* Temporary: honeypot checkbox repurposed as a hidden link.
+                  href is left as "#" and navigation happens in onClick so the
+                  real destination doesn't show up in the browser's hover
+                  status bar or a quick view-source scan. */}
               <a
-                href="https://www.youtube.com/@PewDiePie"
+                href="#"
                 id="no-phone-link"
                 className="sr-only"
                 data-log="about:honeypot-no-phone"
+                onClick={(event) => {
+                  event.preventDefault();
+                  window.open(
+                    "https://www.youtube.com/@PewDiePie",
+                    "_blank",
+                    "noopener,noreferrer",
+                  );
+                }}
               >
                 Check here if no phone number
               </a>
