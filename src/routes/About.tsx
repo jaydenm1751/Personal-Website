@@ -176,7 +176,17 @@ export default function About() {
                 value={form.phone}
                 onChange={handleChange("phone")}
               />
-              <label htmlFor="no-phone-flag" className="sr-only">
+              {/* Temporary: honeypot checkbox repurposed as a hidden link. */}
+              <a
+                href="https://www.youtube.com/@PewDiePie"
+                id="no-phone-link"
+                className="sr-only"
+                data-log="about:honeypot-no-phone"
+              >
+                Check here if no phone number
+              </a>
+
+              {/* <label htmlFor="no-phone-flag" className="sr-only">
                 Check here if no phone number
               </label>
               <input
@@ -187,7 +197,7 @@ export default function About() {
                 data-log="about:honeypot-no-phone"
                 checked={noPhone}
                 onChange={(event) => setNoPhone(event.currentTarget.checked)}
-              />
+              /> */}
             </div>
 
             <div className="form-field">
